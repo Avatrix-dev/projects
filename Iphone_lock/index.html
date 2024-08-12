@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>iphone screen lock</title>
+  <style>
+  @keyframes notify{
+    0%{transform: scale(0,0)}
+    100%{transform: scale(1,1)}
+  }
+  body{
+    margin: 0;
+    -webkit-user-select: none;
+    font-family: sans-serif;
+  }
+    #box1{
+      width: 100%;
+      height: 100vh;
+      background: url("img/028807488440589bb5c7a186250153cf.png");
+    background-size: cover;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+     padding-top: 3.5em;
+     
+    }
+    
+       #box2{
+      width: 100%;
+      height: 100vh;
+      background-image: url("img/028807488440589bb5c7a186250153cf.png");
+      background-size: cover;
+      background-position: 50% 50%;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      padding-top: 3.5em;
+      position: relative;
+      display: none;
+     
+    }
+    
+    #box #img{
+      width: 100%;
+    }
+    
+    .notification{
+      width: 90%;
+      height: 6em;
+      margin: 1em auto;
+      background: rgba(249, 249, 255, 0.7);
+      backdrop-filter: blur(4px);
+      border-radius: 0.4em;
+      display: flex;
+      align-items: center;
+      padding: 0.5em;
+       box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      position: relative;
+      animation: notify 1s;
+      
+    }
+    
+    .notification img{
+      width: 3.5em;
+      height: 3.5em;
+    }
+    
+    #time, #time2{
+      font-size: 5em;
+      color: white;
+      font-weight: 300;
+      text-align: center;
+      margin: 0;
+    }
+    
+    .date, .date2{
+      color: white;
+      font-size: 1.2em;
+      text-align: center;
+      text-transform: capitalize;
+      margin: 0;
+    }
+    
+    .bx{
+      width: 70%;
+      margin: 0.7em 0em 0em 0.5em;
+      position: relative;
+    }
+    
+    .notification h3{
+      margin: 0;
+      position: absolute;
+      top: 5%;
+      left: 3.8em;
+      text-transform: capitalize;
+    }
+    
+    .notification h4{
+      margin: 0;
+      position: absolute;
+      top: 7%;
+      right: 1em;
+      text-transform: capitalize;
+    }
+    
+    .xp{
+      height: 4em;
+      line-height: 1em;
+      overflow: hidden;
+      margin: 0;
+      font-size: 0.9em;
+    }
+    
+    .non{
+      color: white;
+      text-align: center;
+      text-transform: capitalize;
+    }
+    
+    .nbar{
+      width: 50%;
+      height: 0.3em;
+      background: white;
+      border-radius: 0.5em;
+      position: absolute;
+      bottom: 0.5em;
+      left: 25%;
+    }
+    
+    #adsBox {
+      width: 100%;
+      height: 100vh;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      display: none;
+    }
+    
+    #adsBox header{
+      width: 100%;
+      height: 4em;
+      padding: 0em 1em;
+      border-bottom: 1px solid lightgray;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      background: whitesmoke;
+    }
+    
+    #adsBox header div:nth-child(2){
+      font-size: 2em;
+      text-transform: uppercase;
+      color: crimson;
+    }
+        #adsBox header div:nth-child(1){
+      text-transform: capitalize;
+      color: grey;
+    }
+    
+    #mhead{
+      width: 15em;
+      height: 2em;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      background: whitesmoke;
+      margin: 0.5em;
+      border: 1px solid lightgray;
+      border-radius: 0.3em;
+      padding: 0em 0.3em;
+      
+    }
+    #mbody{
+      width: 15em;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      background: whitesmoke;
+      resize: none;
+      margin: 0.5em;
+      border: 1px solid lightgray;
+      border-radius: 0.3em;
+      padding: 0.3em;
+    }
+    
+    #lang{
+      width: 15em;
+      margin: 0.5em;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      border: 1px solid lightgray;
+      border-radius: 0.3em;
+      padding: 0.3em;
+    }
+    
+    #micon{
+      width: 15em;
+      margin: 0.5em;
+    }
+    
+        #awall{
+      width: 15em;
+      margin: 0.5em;
+    }
+    
+    label{
+      display: inline-block;
+      margin: 2em 0em 0em 0.5em;
+      text-transform: capitalize;
+    }
+    
+    #gen{
+      width: 12.5em;
+      height: 2em;
+      background: dodgerblue;
+      margin: 0.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 0.5em;
+      color: white;
+      text-transform: capitalize;
+    }
+    
+    .mxicon{
+      width: 1.5em !important;
+      height: 1.5em !important;
+      position: absolute;
+      bottom: 1em;
+      left: 2.7em;
+    }
+    
+    #xmicon{
+      border-radius: 0.5em;
+    }
+    
+    #input_box{
+      display: none;
+    }
+
+  </style>
+</head>
+
+<body>
+  <!--<input type="file" id="file_input" >
+  -->
+  <div id="box1">
+      
+  <h1 id="time">10:04</h1>
+  <p class="date">Sunday, august 11</p>
+  <div class="notification">
+    <img src="img/Apple_Messages-512.png" alt="/1704394767750.jpg">
+    <h3>message</h3>
+    <h4>now</h4>
+    <div class="bx">
+    <p class="xp">welcome to iphone lock screen
+    web app simulator v1.0.5.6 powerful and 
+    flexible... with new and crazy features.
+    swipe up to get started!</p></div>
+  </div>
+  <p class="non">no order notification.</p>
+</div>
+</div>
+
+<div class="nbar"></div>
+</div>
+
+<div id="adsBox">
+  <header>
+    <div>iphone lock screen</div>
+    <div>ads</div>
+    <div class="skip">skip in » 20</div>
+  </header>
+</div>
+
+<div id="input_box">
+  <input type="text" id="mhead" placeholder="message header">
+  <br>
+  <textarea name="" id="mbody" cols="30" rows="10" placeholder="message"></textarea>
+  <br>
+  <select name="" id="lang">
+    <option value="English">English</option>
+    <option value="Brazil">Brazil</option>
+  </select>
+  <br>
+  <label for="micon">add message icon</label>
+  <br>
+  <input type="file" name="" id="micon">
+    <br>
+  <label for="awall">add wallpaper</label>
+  <br>
+  <input type="file" name="" id="awall">
+  <div id="gen">
+    generate
+  </div>
+</div>
+
+  <div id="box2">
+      
+  <h1 id="time2">10:04</h1>
+  <p class="date2">Sunday, august 11</p>
+  <div class="notification notx">
+    <img src="img/Apple_Messages-512.png" alt="/1704394767750.jpg" id="xmicon">
+    <img src="img/Apple_Messages-512.png" alt="" class="mxicon">
+    <h3 class="mes">message</h3>
+    <h4>now</h4>
+    <div class="bx">
+    <p class="xp xp2">welcome to iphone lock screen
+    web app simulator v1.0.5.6 powerful and 
+    flexible... with new and crazy features.
+    swipe up to get started!</p></div>
+  </div>
+  <p class="non non2">no order notification.</p>
+  <div class="nbar"></div>
+</div>
+
+
+
+
+<script>
+let input_box = document.getElementById("input_box");
+ let time = document.getElementById("time");
+ let time2 = document.getElementById("time2");
+  const box1 = document.getElementById("box1");
+  const box2 = document.getElementById("box2");
+ let dated = document.querySelector(".date");
+ let dated2 = document.querySelector(".date2");
+ let mhead = document.querySelector("#mhead");
+ let skip = document.querySelector(".skip");
+  let mes = document.querySelector(".mes");
+  let lang = document.querySelector("#lang");
+  let xp = document.querySelector(".xp2");
+  let mbody = document.querySelector("#mbody");
+  let notx = document.querySelector(".notx");
+ let gen = document.querySelector("#gen");
+ let adsBox = document.querySelector("#adsBox");
+  let awall = document.getElementById("awall");
+  let micon = document.getElementById("micon");
+  let xmicon = document.getElementById("xmicon");
+  let non = document.querySelector(".non2");
+ let adsTime = 20;
+ let initialTouchY = 0;
+let currentTouchY = 0;
+box2.addEventListener('touchstart', (e) => {
+  initialTouchY = e.touches[0].clientY;
+});
+
+box2.addEventListener('touchmove', (e) => {
+  currentTouchY = e.touches[0].clientY;
+  let difference = initialTouchY - currentTouchY;
+  notx.style.transform = `translateY(${difference}px)`;
+  non.style.transform = `translateY(${difference}px)`;
+});
+
+box2.addEventListener('touchend', () => {
+  initialTouchY = 0;
+  currentTouchY = 0;
+});
+
+
+box1.addEventListener('touchstart', (e) => {
+  const touch = e.touches[0];
+  const startPosition = touch.clientY;
+  let endPosition;
+
+  box1.addEventListener('touchend', (e) => {
+    endPosition = e.changedTouches[0].clientY;
+    const swipeDistance = startPosition - endPosition;
+
+    if (swipeDistance > 100) { // adjust the swipe distance threshold as needed
+      adsBox.style.display = 'block';
+      box1.style.display = "none";
+      setInterval(ads,1000);
+    }
+  });
+});
+
+
+
+
+gen.onclick = function (e) {
+  e.preventDefault();
+  if (mhead.value.trim() !== "" && mbody.value.trim() !== "" && lang.value !== "" && awall.value !== "" && micon.value !== "") {
+    mes.innerHTML = mhead.value.trim();
+    xp.innerHTML = mbody.value.split('\n').slice(0, 4).join('\n'); // Truncate text to four lines
+    input_box.style.display = "none";
+    box2.style.display = "block";
+  } else {
+    alert("Please fill in all input fields.");
+  }
+};
+
+
+
+
+
+ 
+ awall.onchange = function (e){
+   e.preventDefault();
+   var file = this.files[0];
+   box2.style.backgroundImage = `url(${URL.createObjectURL(file)})`;
+   //box2.style.backgroundSize = "cover";
+ }
+ 
+ micon.onchange = function (e){
+   e.preventDefault();
+   var file = this.files[0];
+   xmicon.src = URL.createObjectURL(file);
+   //box2.style.backgroundSize = "cover";
+ }
+ 
+ function ads(){
+   if(adsTime <= 0){
+     clearInterval(ads,1000);
+     skip.innerHTML = `&#9932`;
+     skip.style.fontSize = "2em"; 
+     skip.style.marginLeft = "1.4em";
+     skip.addEventListener("click", function(e){
+      adsBox.style.display = "none";
+      input_box.style.display = "block";
+     });
+     }
+   else{
+     adsTime --;
+     skip.innerHTML = `skip in » ${adsTime}`;
+   }
+ }
+ 
+
+  
+  
+  setInterval(function(e){
+  let date = new Date();
+  let days = ["Sunday","monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  let months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+
+  let day = date.getDay();
+  let month = date.getMonth();
+  let xdate = date.getDate();
+  switch(day){
+    case 0:
+     day = days[0];
+      break;
+      case 1:
+     day = days[1];
+      break;
+      case 2:
+     day = days[2];
+      break;
+      case 3:
+     day = days[3];
+      break;
+      case 4:
+     day = days[4];
+      break;
+      case 5:
+     day = days[5];
+      break;
+      case 6:
+     day = days[6];
+      break;
+      default:
+      day = "unavailable";
+      break;
+  }
+  switch(month){
+    case 0:
+     month = months[0];
+      break;
+      case 1:
+     month = months[1];
+      break;
+      case 2:
+     month = months[2];
+      break;
+      case 3:
+     month = months[3];
+      break;
+      case 4:
+     month = months[4];
+      break;
+      case 5:
+     month = months[5];
+      break;
+      case 6:
+     month = months[6];
+      break;
+      case 7:
+     month = months[7];
+      break;
+      case 8:
+     month = months[8];
+      break;
+      case 9:
+     month = months[9];
+      break;
+      case 10:
+     month = months[10];
+      break;
+      case 11:
+     month = months[11];
+      break;
+      default:
+      month = "unavailable";
+      break;
+  }
+  
+  dated.innerHTML = `${day}, ${month} ${xdate}`;
+  
+  let hour = date.getHours();
+  let minutes = date.getMinutes();
+  if(hour < 10 && minutes < 10){
+     time.innerHTML = `0${hour}:0${minutes}`;
+  }
+  else if(hour < 10){
+    time.innerHTML = `0${hour}:${minutes}`;
+  }
+  else if(minutes < 10){
+    time.innerHTML = `${hour}:0${minutes}`;
+  }
+  else{
+    time.innerHTML = `${hour}:${minutes}`;
+  }
+  },1000);
+  
+  let date = new Date();
+  let en_days = ["Sunday","monday","Tuesday","Wednesday","Thursday","Friday","Saturday"];
+  let en_months = ["January","February","March","April","May","June","July","August","September","October","November","December"];
+  let bra_months = [
+  "Janeiro", // January
+  "Fevereiro", // February
+  "Março", // March
+  "Abril", // April
+  "Maio", // May
+  "Junho", // June
+  "Julho", // July
+  "Agosto", // August
+  "Setembro", // September
+  "Outubro", // October
+  "Novembro", // November
+  "Dezembro" // December
+];
+
+let bra_days = [
+  "Domingo", // Sunday
+  "Segunda-feira", // Monday
+  "Terça-feira", // Tuesday
+  "Quarta-feira", // Wednesday
+  "Quinta-feira", // Thursday
+  "Sexta-feira", // Friday
+  "Sábado" // Saturday
+];
+
+  let days = en_days;
+  let months = en_months;
+  let en_hour = date.getHours();
+  let bra_hour = date.getHours() - 4;
+  let minutes = date.getMinutes();
+  let hour = en_hour;
+  
+  
+  lang.onchange = function(e) {
+  e.preventDefault();
+  if (this.value === "English") {
+    days = en_days;
+    months = en_months;
+    hour = en_hour;
+    non.innerHTML = "No order notification.";
+  } else if (this.value === "Brazil") {
+    days = bra_days;
+    months = bra_months;
+    hour = bra_hour;
+    non.innerHTML = "Nenhuma notificação de pedido."; // Update this line
+  }
+};
+
+  
+  
+  setInterval(function(e){
+  
+  
+  let day = date.getDay();
+  let month = date.getMonth();
+  let xdate = date.getDate();
+  switch(day){
+    case 0:
+     day = days[0];
+      break;
+      case 1:
+     day = days[1];
+      break;
+      case 2:
+     day = days[2];
+      break;
+      case 3:
+     day = days[3];
+      break;
+      case 4:
+     day = days[4];
+      break;
+      case 5:
+     day = days[5];
+      break;
+      case 6:
+     day = days[6];
+      break;
+      default:
+      day = "unavailable";
+      break;
+  }
+  switch(month){
+    case 0:
+     month = months[0];
+      break;
+      case 1:
+     month = months[1];
+      break;
+      case 2:
+     month = months[2];
+      break;
+      case 3:
+     month = months[3];
+      break;
+      case 4:
+     month = months[4];
+      break;
+      case 5:
+     month = months[5];
+      break;
+      case 6:
+     month = months[6];
+      break;
+      case 7:
+     month = months[7];
+      break;
+      case 8:
+     month = months[8];
+      break;
+      case 9:
+     month = months[9];
+      break;
+      case 10:
+     month = months[10];
+      break;
+      case 11:
+     month = months[11];
+      break;
+      default:
+      month = "unavailable";
+      break;
+  }
+  
+  dated2.innerHTML = `${day}, ${month} ${xdate}`;
+  
+ 
+  if(hour < 10 && minutes < 10){
+     time2.innerHTML = `0${hour}:0${minutes}`;
+  }
+  else if(hour < 10){
+    time2.innerHTML = `0${hour}:${minutes}`;
+  }
+  else if(minutes < 10){
+    time2.innerHTML = `${hour}:0${minutes}`;
+  }
+  else{
+    time2.innerHTML = `${hour}:${minutes}`;
+  }
+  },1000);
+
+</script>
+</body>
+
+  </html>
